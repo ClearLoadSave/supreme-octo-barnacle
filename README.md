@@ -1,11 +1,10 @@
 # supreme-octo-barnacle
-2D game made with pure Java
+## A 2D game made with pure Java
 
 Used the name because it was recommended by GitHub
 
 Why, you got a problem with that?
-
-*Game Details
+Game Details
 
 Old Pokemon style game
 Shitty graphics
