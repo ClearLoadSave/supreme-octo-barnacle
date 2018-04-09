@@ -13,7 +13,7 @@ public class InputHandler implements KeyListener {
 	public class Key
 	{
 		private int keyPressedCount = 0;
-		private boolean pressed = false;
+		private boolean pressed;
 		
 		public int getKeyPressedCount()
 		{
@@ -57,9 +57,17 @@ public class InputHandler implements KeyListener {
 	
 	public void toggleKey(int keyCode, boolean isPressed)
 	{
-		if(keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_UP) up.toggle(isPressed);
-		if(keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_DOWN) down.toggle(isPressed);
-		if(keyCode == KeyEvent.VK_A || keyCode == KeyEvent.VK_LEFT) left.toggle(isPressed);
-		if(keyCode == KeyEvent.VK_D || keyCode == KeyEvent.VK_RIGHT) right.toggle(isPressed);
+		if(keyCode == KeyEvent.VK_W || keyCode == KeyEvent.VK_UP) {
+			up.toggle(isPressed);
+		}
+		if(keyCode == KeyEvent.VK_S || keyCode == KeyEvent.VK_DOWN) {
+			down.toggle(isPressed);
+		}
+		if(keyCode == KeyEvent.VK_A || keyCode == KeyEvent.VK_LEFT) {
+			left.toggle(isPressed);
+		}
+		if(keyCode == KeyEvent.VK_D || keyCode == KeyEvent.VK_RIGHT) {
+			right.toggle(isPressed);
+		}
 	}
 }

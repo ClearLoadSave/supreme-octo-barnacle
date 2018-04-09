@@ -3,12 +3,12 @@ package tiles;
 import gfx.Display;
 import level.Level;
 
-public class BaseTile extends Tile {
+public class BasicTile extends Tile {
 	
 	protected int tileID;
 	protected int tileColor;
 	
-	public BaseTile(int id, int x, int y, int tileColor)
+	public BasicTile(int id, int x, int y, int tileColor)
 	{
 		super(id, false, false);
 		this.tileID = x + y;
@@ -18,6 +18,6 @@ public class BaseTile extends Tile {
 	@Override
 	public void render(Display display, Level level, int x, int y)
 	{
-		display.render(x, y, tileID, tileColor);
+		display.render(x, y, tileID, tileColor, 0x00, 1);
 	}
 }

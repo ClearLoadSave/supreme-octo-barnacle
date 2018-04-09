@@ -1,13 +1,14 @@
 package entities;
 
 import level.Level;
+import tiles.Tile;
 
 public abstract class Mob extends Entity {
 	
 	protected String name;
 	protected int speed;
 	protected int stepCount = 0;
-	protected boolean isMoving;
+	protected boolean isMoving = false;
 	protected int moveDir = 0; //0: Up 1: Down 2: Left 3: Right
 	protected int scale = 1;
 	
@@ -33,7 +34,7 @@ public abstract class Mob extends Entity {
 		stepCount++;
 		
 		if(!hasCollided(xa, ya))
-		{
+		{			
 			if(ya < 0) moveDir = 0;
 			if(ya > 0) moveDir = 1;
 			if(xa < 0) moveDir = 2;
@@ -45,6 +46,18 @@ public abstract class Mob extends Entity {
 	}
 	
 	public abstract boolean hasCollided(int xa, int ya);
+	
+	protected boolean isSolidTile(int xa, int ya, int x, int y)
+	{
+		if(level == null) return false;
+		
+		Tile lastTile = level.getTile((this.x + x) >> 3, (this.y + y) >> 3);
+		Tile newTile = level.getTile((this.x + x + xa) >> 3, (this.y + y + ya) >> 3);		
+		
+		if(!lastTile.equals(newTile) && newTile.isSolid()) return true;
+		
+		return false;
+	}
 	
 	public String getName()
 	{
